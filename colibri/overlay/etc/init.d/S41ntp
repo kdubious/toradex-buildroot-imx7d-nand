@@ -1,0 +1,42 @@
+#!/bin/sh
+
+DAEMON="ntpd"
+NTP_SERVER="pool.ntp.org"
+
+NTP_ARGS="-n -q"
+
+# shellcheck source=/dev/null
+[ -r "/etc/default/$DAEMON" ] && . "/etc/default/$DAEMON"
+
+start() {
+	printf 'Starting %s: ' "$DAEMON"
+	# shellcheck disable=SC2086 # we need the word splitting
+	/usr/sbin/$DAEMON $NTP_ARGS -p $NTP_SERVER
+	status=$?
+	if [ "$status" -eq 0 ]; then
+		echo "OK"
+	else
+		echo "FAIL"
+	fi
+	return "$status"
+}
+
+stop() {
+	echo "Nothing to do, $DAEMON is not a daemon."
+}
+
+restart() {
+	start
+}
+
+reload() {
+	echo "Nothing to do, $DAEMON does not support reload."
+}
+
+case "$1" in
+	start|stop|restart|reload)
+		"$1";;
+	*)
+		echo "Usage: $0 {start|stop|restart|reload}"
+		exit 1
+esac

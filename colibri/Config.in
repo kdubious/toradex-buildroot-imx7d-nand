@@ -1,0 +1,2 @@
+# The line below would add the package in the mypackage directory
+#source "$BR2_EXTERNAL_TORADEX_PATH/package/mypackage/Config.in"
