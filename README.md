@@ -1,2 +1,22 @@
 # toradex-buildroot-imx7d-nand
 Setup for using Buildroot with the Toradex iMX7D 512MB NAND SoM
+
+This is not intended to be a Buildroot tutorial, so these steps assume you have read the Buildroot docs
+
+1. Download a copy of Buildroot, extract to a local folder. (Or clone with git)
+
+The details here assume that Buildroot is located at `~/buildroot`
+
+2. Clone this repo. (Or Fork it, then clone it)
+
+The details here assume that this repo is located at `~/toradex-buildroot-imx7d-nand`
+
+3. `cd ~/buildroot`
+
+4. In the Buildroot folder, set up for keeping customizations outside of Buildroot:
+
+(https://buildroot.org/downloads/manual/manual.html#outside-br-custom)
+
+`make BR2_EXTERNAL=~/toradex-buildroot-imx7d-nand/colibri nconfig` (nconfig, or menuconfig, or xconfig, etc.)
+
+5. Taregt Options are set up
