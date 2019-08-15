@@ -19,4 +19,27 @@ The details here assume that this repo is located at `~/toradex-buildroot-imx7d-
 
 `make BR2_EXTERNAL=~/toradex-buildroot-imx7d-nand/colibri nconfig` (nconfig, or menuconfig, or xconfig, etc.)
 
-5. Taregt Options are set up
+5. Save and Exit
+
+6. You can now run `make toradex-defconfig`, which is in this repo
+
+7. `make nconfig` (nconfig, or menuconfig, or xconfig, etc.)
+
+8. Add packages and change settings as you wish
+
+9. `make clewan all`
+
+10. Wait. Now you have the assets in `~/buildroot/output/images` for a TEZI install. Update your image.json as needed
+
+https://developer.toradex.com/software/toradex-easy-installer
+
+a. UBOOT
+
+b. KERNEL
+
+c. DTB
+
+d. RootFS
+
+
+
